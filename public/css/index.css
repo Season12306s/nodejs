@@ -1,0 +1,438 @@
+body {
+    background: url(/images/1.jpg);
+}
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.header {
+    width: 100%;
+    height: 80px;
+    background: #eee;
+    border-bottom: 1px solid #eee;
+    line-height: 80px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    opacity: 0.5;
+}
+.header .header_lef {
+    width: 200px;
+    height: 80px;
+    text-align: center;
+    background: #eee;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    color:blueviolet;
+}
+.header .header_lef:hover {
+    background: #cccccc;
+    cursor: pointer;
+    color: blueviolet;
+}
+.header .header_rig {
+    display: flex;
+    font-size: 14px;
+    color:blueviolet;
+    padding-left: 150px;
+    box-sizing: border-box;
+}
+.header .header_rig button {
+    font-size: 12px;
+    outline: none;
+    margin-top: 38px;
+    margin-left: 50px;
+    background: #eee;
+    border: 2px solid #ccc;
+}
+.header .header_rig button a {
+    display: block;
+    width: 55px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    color: blueviolet;
+}
+.header .header_rig button:hover {
+    background: blueviolet;
+    opacity: 0.3;
+    
+}
+.header .header_rig button a:hover {
+    color: #eee;
+}
+.container .footer {
+    display: flex;
+    height: 100%;
+    flex: 1;
+}
+.container .footer_lef {
+    width: 200px;
+    border-right: 1px solid #f4f4f4;
+    opacity: 0.5;
+}
+.container .footer_lef ul li {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 1px solid #eee;
+    color: blueviolet;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.active {
+    background: blueviolet;
+    opacity: 0.6;
+    color: #fff;
+}
+.container .footer_lef ul li a {
+    width: 100%;
+    height: 60px;
+    display: block;
+    text-decoration: none;
+}
+.container .footer_rig {
+    flex: 1;
+}
+.container .alert .user-update {
+    width: 100%;
+    color: blueviolet;
+    font-size: 26px;
+    line-height: 60px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container .footer_rig .structure {
+    width: 600px;
+    height: 500px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.container .footer_rig .structure .search {
+    width: 300px;
+    height: 32px;
+    margin-bottom: 50px;
+}
+.container .footer_rig .structure .search input {
+    width: 240px;
+    height: 30px;
+    border: 0;
+    padding-left: 15px;
+    outline: 0;
+    background: #eee;
+}
+.container .footer_rig .structure .search button {
+    width: 50px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background: #eee;
+    opacity: 0.8;
+    color: blueviolet;
+    outline: none;
+}
+.container .footer_rig .structure .search button:hover {
+    background: blueviolet;
+    opacity: 0.4;
+    color: #fff;
+}
+.container .footer_rig .structure .table {
+    width: 700px;
+    height: 250px;
+    text-align: center;
+    color: #000;
+    position: relative;
+}
+.container .footer_rig .structure table {
+    width: 700px;
+    height: 250px;
+    text-align: center;
+    color: #000;
+}
+.container .footer_rig .structure table,tr,td,th {
+    border: 1px solid #eee;
+    height: 50px;
+}
+.container .footer_rig .structure table a {
+    text-decoration: none;
+    color: #000;
+}
+.container .footer_rig .structure table a:hover {
+    text-decoration: underline;
+    color:#fff;
+}
+.container .footer_rig .apart {
+    float: right;
+}
+.container .footer_rig .apart li {
+    float: left;
+    width: 35px;
+}
+/* 用户弹出框 */
+.alert {
+    background: #fff;
+    position: absolute;
+    z-index: 99;
+    display: none;
+    width: 520px;
+    height: 400px;
+    top: -20px;
+    border: 1px solid #ccc;
+    left: 12%;
+}
+.alert  h2 {
+    font-size: 20px;
+    line-height: 45px;
+    color: blueviolet;
+    font-weight: 400;
+    text-align: center;
+}
+.alert .updata {
+    width: 350px;
+    height: 355px;
+    margin: 0 auto;
+    position: relative;
+}
+.alert .updata p {
+    width: 100%;
+    height: 50px;
+    opacity: 1;
+    font-size: 16px;
+    background: none;
+    opacity: 0.9;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+}
+.alert .updata input[type=text], 
+.alert .updata input[type=tel]{
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+}
+.alert .updata .user {
+    margin-left: 10px;
+}
+.alert .updata .nickname {
+    margin-left: 24px;
+}
+.alert .updata .phone {
+    margin-left: -3px;
+}
+.alert .updata .age {
+    margin-left: 22px;
+}
+.alert .updata p span {
+    width: 50px;
+    height: 50px;
+    text-align: right;
+}
+.alert .updata p .sex {
+    float: left;
+    margin-left: 60px;
+}
+.alert .updata p .male input {
+    margin-right: 10px;
+}
+.alert .updata p .male {
+    width: 90px;
+    float: left;
+}
+.alert .updata button {
+    width: 70px;
+    height: 30px;
+    background: #eee;
+    opacity: 0.8;
+    outline: none;
+    border: 1px solid #ccc;
+}
+.alert .updata button:hover {
+    background: blueviolet;
+    opacity: 0.5;
+}
+.alert .updata .confirm {
+    margin: 40px 50px -20px 0;
+}
+.alert .updata a {
+    text-decoration: none;
+    color: rgb(32, 32, 32);
+}
+
+/* 添加手机 */
+.footer_rig .addPhone {
+    width: 100%;
+    height: 80px;
+    background: #eee;
+    opacity: 0.3;
+    line-height: 80px;
+    padding-left: 100px;
+    box-sizing: border-box;
+}
+.footer_rig .welcome {
+    width: 100%;
+    height: 100px;
+    opacity: 0.3;
+    line-height: 100px;
+    color: blueviolet;
+    font-size: 36px;
+    padding: 50px 0 0 350px;
+}
+.footer_rig .addPhone button {
+    border: none;
+    outline: none;
+}
+.footer_rig .addPhone button a {
+    display: block;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    color: blueviolet;
+    border:1px solid #ccc;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.footer_rig .addPhone button a:hover {
+    background: blueviolet;
+    color: #fff;
+    opacity: 0.6;
+}
+/* 表格 */
+.footer_rig .table2 {
+    width: 700px;
+    height: 500px;
+    text-align: center;
+    color: #000;
+    margin: 50px 0 0 100px;
+    position: relative;
+}
+.container .footer_rig .table2 table {
+    width: 700px;
+}
+.container .footer_rig .table2 table,tr,td,th {
+    border: 1px solid #eee;
+}
+.container .footer_rig .table2 tr,td,th {
+    height: 50px;
+}
+.container .footer_rig .table2 table a {
+    text-decoration: none;
+    color: #000;
+}
+.container .footer_rig .table2 table a:hover {
+    text-decoration: underline;
+    color:#fff;
+}
+
+/* 手机弹出框 */
+.mobile {
+    background: #fff;
+    position: absolute;
+    z-index: 99;
+    display: none;
+    width: 520px;
+    height: 400px;
+    top: -20px;
+    border: 1px solid #ccc;
+    left: 12%;
+}
+.mobile  .mobile-add {
+    font-size: 20px;
+    line-height: 45px;
+    color: blueviolet;
+    font-weight: 400;
+    text-align: center;
+}
+.mobile .add {
+    width: 350px;
+    height: 355px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 10px;
+}
+.mobile .add p {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    background: none;
+    opacity: 0.9;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+}
+.mobile .add .pic {
+    margin-top: 15px;
+}
+.mobile .add input[type=text] {
+    height: 30px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+}
+.mobile .add .user {
+    margin-left: 10px;
+}
+.mobile .add .choose {
+    width: 180px;
+    height: 30px;
+    outline: none;
+    margin-left: 10px;
+}
+.mobile .add p span {
+    width: 50px;
+    height: 50px;
+    text-align: right;
+}
+.mobile .add .second {
+    margin-left: -32px;
+}
+.mobile .add .block {
+    display: inline-block;
+    margin-left: 35px;
+}
+.mobile .add .file {
+    outline: none;
+}
+.mobile .add p .sex {
+    float: left;
+    margin-left: 60px;
+}
+.mobile .add p .male input {
+    margin-right: 10px;
+}
+.mobile .add p .male {
+    width: 90px;
+    float: left;
+}
+.mobile .add button {
+    width: 70px;
+    height: 30px;
+    background: #eee;
+    opacity: 0.8;
+    outline: none;
+    border: 1px solid #ccc;
+}
+.mobile .add button:hover {
+    background: blueviolet;
+    opacity: 0.5;
+}
+.mobile .add .confirm {
+    margin: 25px 50px -20px 0;
+}
+.mobile .add a {
+    text-decoration: none;
+    color: rgb(32, 32, 32);
+}
+.pageEl {
+    color: #fff;
+    cursor: pointer;
+}
+.pageEl li:hover {
+    text-decoration: underline;
+}

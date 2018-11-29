@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <link rel='stylesheet' href='/css/reset.css' />
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/ballon.css">
+  </head>
+  <body>
+    <div class="container">
+      <%- include('./common/header.ejs', { nickname: nickname, isAdmin: isAdmin }) %>
+      <div class="footer">
+        <%-include('./common/footer_lef.ejs') %>
+        <div class="footer_rig">
+          <h2 class="welcome">Welcome to us...</h2>
+          <div class="qiqiu1 qiqiu">
+            <img src="images/1.png" />
+            <div class="text">喔</div>
+          </div>
+          <div class="qiqiu2 qiqiu">
+            <img src="images/2.png" />
+            <div class="text">哈</div>
+          </div>
+          <div class="qiqiu3 qiqiu">
+            <img src="images/3.png" />
+            <div class="text">哼</div>
+          </div>
+          <div class="qiqiu4 qiqiu">
+            <img src="images/4.png" />
+            <div class="text">嘿</div>
+          </div>
+          <div class="qiqiu5 qiqiu">
+            <img src="images/5.png" />
+            <div class="text">嗨</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <link rel='stylesheet' href='/css/reset.css' />
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <%- include('./common/header.ejs', { nickname: nickname, isAdmin: isAdmin }) %>
+        <div class="footer">
+            <%-include('./common/footer_lef.ejs') %>
+            <div class="footer_rig">
+                <p class="addPhone">
+                    <button>
+                        <a class="addMobile" id="addBrand">新增品牌</a>
+                    </button>
+                </p>
+
+                <div class="table2" style="width:600px">
+                    <table style="width:600px;">
+                        <thead>
+                            <th>序号</th>
+                            <th>品牌LOGO</th>
+                            <th>品牌名称</th>
+                            <th>操作</th>
+                        </thead>
+                
+                        <tbody class="tbody">
+                            <!-- <tr>
+                                <td>1</td>
+                                <td>苹果 iPhone XS Max</td>
+                                <td>苹果</td>
+                                <td>
+                                    <a class="phone-update">修改</a>
+                                    <a>删除</a>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                
+                    <ul class="pageEl" style="float: right;"></ul>
+                
+                    <div class="alert">
+                        <h2 class="user-update">修改</h2>
+                        <form class="updata" style="margin-top:50px;" enctype="multipart/form-data" action="javascript:;">
+                            <p style="display:none;"><span>id：</span><input type="text" class="id" name="id"></p>
+                            <p><span>品牌名称：</span><input type="text" class="names" name="brandNames" id="brandNames"></p>
+                            <p class="pic">
+                                <span class="block">图片：</span>
+                                <input type="file" class="file" name="brandPic" id="brandPic" style="outline: none">
+                            </p>
+                            <div class="formconfirm" style="margin-top:80px">
+                                <button class="confirm">
+                                    <a class="updatas">确认修改</a>
+                                </button>
+                                <button class="dont">取消</button>
+                            </div>
+                        </form>
+                    </div>               
+                    <div class="mobile" id="Abrand">
+                        <h2 class="mobile-add" style="margin-top:15px">新增品牌</h2>
+                        <form class="add" enctype="multipart/form-data" action="javascript:;">
+                            <p>
+                                <span>品牌名称：</span>
+                                <input type="text" class="user" name="brandName" placeholder="请输入品牌名称" id="brandName">
+                            </p>
+                            <p class="pic">
+                                <span class="inline-block" style="width:100px;float:left">新增LOGO:</span>
+                                <input type="file" class="file" name="logo" style="float:left;margin-left: 135px" id="logo">
+                            </p>
+                            <div class="button" style="width:350px;margin:50px auto;float:left">
+                                <button class="confirm1" id="confirmAdd" style="margin-right:60px;">确认新增</button>
+                                <button class="donts" id="cancel">取消</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/brand-manager.js"></script>
+</html>

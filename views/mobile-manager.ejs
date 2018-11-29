@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <link rel='stylesheet' href='/css/reset.css' />
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <%- include('./common/header.ejs', { nickname: nickname, isAdmin: isAdmin }) %>
+        <div class="footer">
+            <%-include('./common/footer_lef.ejs') %>
+            <div class="footer_rig">
+                <p class="addPhone">
+                    <button>
+                        <a class="addMobile">新增手机</a>
+                    </button>
+                </p>
+                <div class="table2">
+                    <table>
+                        <thead>
+                            <th>序号</th>
+                            <th>图片</th>
+                            <th>手机名称</th>
+                            <th>所属品牌</th>
+                            <th>官方指导价</th>
+                            <th>二手回收价</th>
+                            <th>操作</th>
+                        </thead>
+
+                        <tbody class="tbody">
+                            
+                        </tbody>
+                    </table>
+
+                    <ul class="pageEl" style="float: right;"></ul>
+
+                    <div class="alert">
+                        <h2 class="user-update">修改</h2>
+                        <form class="updata" enctype="multipart/form-data" action="javascript:;">
+                            <p style="display:none;"><span>id：</span><input type="text" class="id" name="id"></p>
+                            <p><span>手机名称：</span><input type="text" class="names" name="names" style="margin-left:12px"></p>
+                            <p>
+                                <span>所属品牌：</span>
+                                <select name="brands" class="selectedBrand" style="width: 180px;height: 30px;outline: none;margin-left: 10px;"></select>
+                                <!-- <input type="text" class="brands" name="brands" style="margin-left: 13px"> -->
+                            </p>
+                            <p><span>官方指导价：</span><input type="tel" class="guanprices" name="guanprices"></p>
+                            <p><span>二手回收价：</span><input type="tel" class="secondprices" name="secondprices"></p>
+                            <p class="pic">
+                                <span class="block">图片：</span>
+                                <input type="file" class="file" name="mobilePic" id="mobilePic" style="outline: none">
+                            </p>
+                            <button class="confirms" style="margin-right:70px">
+                                <a class="updatas">确认修改</a>
+                            </button>
+                            <button class="dont">取消</button>
+                        </form>
+                    </div>
+
+
+
+                    <div class="mobile">
+                        <h2 class="mobile-add">新增</h2>
+                        <form class="add" action="javascript:;" enctype="multipart/form-data">
+                            <p>
+                                <span>名称：</span>
+                                <input type="text" class="user" name="mobileName" placeholder="请输入手机名称" id="mobileName">
+                            </p>
+                            <p>
+                                <span>品牌：</span>
+                                <select class="choose" name="choose">
+                                    <!-- <option>三星</option>
+                                    <option>小米</option>
+                                    <option>华为</option>
+                                    <option>荣耀</option> -->
+                                </select>
+                            </p>
+                            <p>
+                                <span class="second">官方指导价：</span>
+                                <input type="text" class="price" name="guanPrice" placeholder="请输入官方指导价" id="guanPrice">
+                            </p>
+                            <p>
+                                <span class="second">二手回收价：</span>
+                                <input type="text" class="price" name="secondPrice" placeholder="请输入二手回收价" id="secondPrice">
+                            </p>
+                            <p class="pic">
+                                <span class="block">图片：</span>
+                                <input type="file" class="file" name="mobile" id="mobile">
+                            </p>
+                            <button class="confirm2" id="confirmAdd1" style="margin-right:60px">确认修改</button>
+                            <button class="donts">取消</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script>
+    var page = 1;
+    var pageSize = 3;
+
+
+    function getList() {
+        $.post("/mobile/list", { page: page, pageSize: pageSize }, function (res) {
+            if (res.code === 0) {
+                var str = '';
+                var list = res.data.list;
+                var totalPage = res.data.totalPage;
+                for (var i = 0; i < list.length; i++) {
+                    str += `
+                    <tr class="phones">
+                        <td>${list[i]._id}</td>
+                        <td>
+                            <img src="${list[i].src}" style="width:80px;height:80px;margin-top:10px;border:1px solid #eee;"/>
+                        </td>
+                        <td>${list[i].name}</td>
+                        <td>${list[i].brand}</td>
+                        <td>￥${list[i].guanprice}</td>
+                        <td>￥${list[i].secondprice}</td>
+                        <td>
+                            <a class="phone-update">修改</a>
+                            <a class="delete-phone">删除</a>
+                        </td>
+                    </tr>
+                `
+
+                }
+
+                var pageStr = '<li class="first" style="float: left; width: 35px;margin-top:10px;"><<</li>';
+                for (var i = 0; i < totalPage; i++) {
+                    pageStr += `
+                        <li class="page_item" style="float: left; width: 35px;margin-top:10px;">${i + 1}页</li>
+                    `
+                };
+
+                pageStr = pageStr + '<li class="last" style="float: left; width: 35px;margin-top:10px;">>></li>';
+                $(".tbody").html(str);
+                $('.pageEl').html(pageStr);
+            } else {
+                alert(res.msg);
+            }
+
+        });
+    }
+
+    $(document).ready(function () {
+        getList();
+
+
+        // 分页的点击事件
+
+        $('.pageEl').on('click', '.page_item', function () {
+            var curPage = $(this).text().trim();
+            page = curPage;
+            getList();
+        });
+        //回到第一页
+        $('.pageEl').on('click', '.first', function () {
+            page = 1;
+            getList();
+        });
+        //回到最后一页
+        $('.pageEl').on('click', '.last', function () {
+            page = $('.page_item').length;
+            getList();
+        });
+        
+        //点击删除ajax
+        $('.tbody').on('click', '.delete-phone', function () {
+            var id = $(this).parent().parent().children().eq(0).text().trim();
+            var does = confirm("确认删除吗？");
+            if (does) {
+                // $(this).attr("href", `/mobile/delete/?id=${id}`);
+                 $.ajax({
+                    url: '/mobile/delete',
+                    method: 'get',
+                    data: { id: id },
+                    success: function (res) {
+                        console.log(res);
+                        if (res.code === 0) {
+                            //主动调用list方法，刷新页面
+                            getList();
+                        } else {
+                            alert(res.msg);
+                        }
+                    }
+                })
+            }
+        });
+        
+        //点击修改
+        $('.tbody').on('click', '.phone-update', function () {
+            $('.alert').show();
+            var id = $(this).parent().parent().children().eq(0).text().trim();
+            var name = $(this).parent().parent().children().eq(2).text().trim();
+            var brand = $(this).parent().parent().children().eq(3).text().trim();
+            var guanprice = $(this).parent().parent().children().eq(4).text().trim();
+            var secondprice = $(this).parent().parent().children().eq(5).text().trim();
+            $(".id").val(id);
+            $(".names").val(name);
+            $(".selectedBrand").val(brand);
+            $(".guanprices").val(guanprice);
+            $(".secondprices").val(secondprice);
+        });
+
+        $('.dont').click(function () {
+            $('.alert').hide();
+        });
+        
+        //点击修改ajax
+        $(".confirms").click(function () {
+            //自己模拟form表单
+            var formData = new FormData();
+            formData.append('id', $(".id").val());
+            formData.append('names', $(".names").val());
+            formData.append('selectedBrand', $(".selectedBrand").val());
+            
+            formData.append('guanprices', $(".guanprices").val());
+            formData.append('secondprices', $(".secondprices").val());
+            formData.append('mobilePic', $("#mobilePic")[0].files[0]);
+            // console.log($("#mobilePic")[0].files[0]);
+            if ($("#mobilePic").val()) {
+                $.ajax({
+                    url: '/mobile/update',
+                    method: 'post',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        console.log(result);
+                        if (result.code === 0) {
+                            $('.alert').hide();
+                            //主动调用list方法，刷新页面
+                            getList();
+                        } else {
+                            alert(result.msg);
+                        }
+                    }
+                });
+            } else {
+                alert("请选择正确的文件");
+            }
+        });
+
+
+         $("#confirmAdd1").click(function () {
+            //自己模拟form表单
+            var formData = new FormData();
+            formData.append('mobileName', $("#mobileName").val());
+            formData.append('choose', $(".choose").val());
+
+            formData.append('guanPrice', $("#guanPrice").val());
+            formData.append('secondPrice', $("#secondPrice").val());
+            formData.append('mobile', $("#mobile")[0].files[0]);
+            // console.log($("#logo")[0].files[0]);
+            if($("#mobile").val()){
+                $.ajax({
+                    url: '/mobile/add',
+                    method: 'post',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        if (result.code === 0) {
+                            $('.mobile').hide();
+
+                            //主动调用list方法，刷新页面
+                            getList();
+                        } else {
+                            console.log(result.msg);
+                        }
+                    }
+                });
+            } else {
+                alert('请选择正确的文件');
+            }
+        });
+
+
+
+        //把品牌渲染到下拉列表
+        $.post('/mobile/findBrand',function(res) {
+            console.log(res);
+            var brandStr = '';
+            var arr = [];
+            for(var i=0;i<res.length;i++) {
+                if(arr.indexOf(res[i].brandName) ==-1) {
+                    arr.push(res[i].brandName);
+                    brandStr += `
+                    <option class="option">${res[i].brandName}</option>
+                `
+                }
+                
+            }
+            $('.choose').html(brandStr);
+            $('.selectedBrand').html(brandStr);
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,20 @@
+<div class="header">
+    <div class="header_lef">
+        <h2 class="back">xxx-后台管理系统</h2>
+    </div>
+    <div class="header_rig">
+        <% if (isAdmin) {%>
+            <p>欢迎您 -- 用户:
+                <%= nickname %> -- 
+                <%= isAdmin %>
+            </p>
+        <% } else {%>
+            <p>欢迎您 -- 用户:
+                <%= nickname %>
+            </p>
+        <% }%>
+        <button>
+           <a href="javascript:;" id="logout">退出登录</a> 
+        </button>
+    </div>
+</div>

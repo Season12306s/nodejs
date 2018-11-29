@@ -1,0 +1,19 @@
+<div class="footer_lef">
+    <ul>
+        <li>
+            <a href="/" class="list <%= curHref == ' ' ? 'active' : ''  %>">首页</a>
+        </li>
+        <% if (isAdmin) {%>  
+            <li >
+                <a href="/user-manager.html" class="list <%= curHref == 'user-manager' ? 'active' : ''  %>">用户管理</a>
+            </li>
+        <% } %>
+        
+        <li>
+            <a href="/mobile-manager.html" class="list <%= curHref == 'mobile-manager' ? 'active' : ''  %>">手机管理</a>
+        </li>
+        <li>
+            <a href="/brand-manager.html" class="list <%= curHref == 'brand-manager' ? 'active' : ''  %>">品牌管理</a>
+        </li>
+    </ul>
+</div>

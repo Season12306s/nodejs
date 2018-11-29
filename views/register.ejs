@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/lib/bootstrapt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/register.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form class="contact_form" action="/users/register" method="post" name="contact_form">
+            <ul>
+                <li class="usually">
+                    <h2>后台管理系统注册</h2>
+                </li>
+                <li class="usually">
+                    <span>昵称:</span>
+                    <input type="text" name="nickname" class="form-control nickname" placeholder="请输入昵称">
+                    <i class="error nickError" style="display:none">请输入2~8位的字符 ！</i>
+    
+                </li>
+                <li class="usually">
+                    <span>用户名:</span>
+                    <input type="text" name="username" class="form-control username" placeholder="请输入用户名">
+                    <i class="error userError" style="display:none">请输入5~12位的字符 ！</i>
+                </li>
+                <li class="usually">
+                    <span>密码:</span>
+                    <input type="password" name="password" class="form-control password" placeholder="请输入密码">
+                    <i class="error pwdError" style="display:none">请输入6~12位的字符 ！</i>
+                </li>
+                <li class="usually">
+                    <span>确认密码:</span>
+                    <input type="password" name="repassword" class="form-control repassword" placeholder="请再次输入密码">
+                    <i class="error apwdError" style="display:none">两次密码输入的不相符 ！</i>
+                </li>
+                <li class="usually">
+                    <span>手机号码:</span>
+                    <input type="tel" name="phone" class="form-control phone" placeholder="请输入手机号码">
+                    <i class="error phoneError" style="display:none">请输入正确的手机号码 ！</i>
+                </li>
+                <li class="form-group special">
+                    
+                    <span>管理员:</span>
+                    <input type="radio" name="isAdmin" value="1" id="yes" checked/>
+                    <label for="yes">yes</label>
+                    <input type="radio" name="isAdmin" value="0" id="no" />
+                    <label for="no">no</label>
+                </li>
+                <li>
+                    <button class="btn" type="button" style="outline: none">立即注册</button>
+                    <a href="/login.html" style="margin-left:40px;color:bisque;text-align: center;line-height: 30px;">立即登录？</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+<script src="/lib/jquery/jquery-3.3.1"></script>
+<script src="/lib/bootstrapt/js/bootstrap.min.js"></script>
+<script src="/js/register.js"></script>
+</html>
